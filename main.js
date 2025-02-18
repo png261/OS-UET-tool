@@ -225,8 +225,8 @@ function displayResults(schedulingResult) {
 
 function displayMetrics(schedulingResult, processes) {
     document.getElementById("throughput").innerText = calculateThroughput(schedulingResult, processes);
-    document.getElementById("turnaround").innerText = calculateThroughput(schedulingResult, processes);
-    document.getElementById("response").innerText = calculateThroughput(schedulingResult, processes);
-    document.getElementById("waiting").innerText = calculateThroughput(schedulingResult, processes);
+    document.getElementById("turnaround").innerText = calculateTurnaroundTime(schedulingResult, processes);
+    document.getElementById("response").innerText = calculateResponseTime(schedulingResult, processes);
+    document.getElementById("waiting").innerText = calculateWaitingTime(schedulingResult, processes);
 }
 
