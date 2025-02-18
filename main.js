@@ -225,8 +225,18 @@ function displayResults(schedulingResult) {
 
 function displayMetrics(schedulingResult, processes) {
     document.getElementById("throughput").innerText = calculateThroughput(schedulingResult, processes);
-    document.getElementById("turnaround").innerText = calculateTurnaroundTime(schedulingResult, processes);
-    document.getElementById("response").innerText = calculateResponseTime(schedulingResult, processes);
-    document.getElementById("waiting").innerText = calculateWaitingTime(schedulingResult, processes);
+    turnaround = calculateTurnaroundTime(schedulingResult, processes)
+    response = calculateResponseTime(schedulingResult, processes)
+    waiting = calculateWaitingTime(schedulingResult, processes)
+
+    const resultsTable = document.getElementById("metricTable").getElementsByTagName('tbody')[0];
+    resultsTable.innerHTML = "";
+    processes.forEach(p => {
+        let row = resultsTable.insertRow();
+        row.insertCell(0).innerText = p.process_name;
+        row.insertCell(1).innerText = turnaround[p.process_name];
+        row.insertCell(2).innerText = response[p.process_name];
+        row.insertCell(3).innerText = waiting[p.process_name];
+    });
 }
 
