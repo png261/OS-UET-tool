@@ -30,7 +30,6 @@ function parseProcesses(input) {
     return processes;
 }
 
-// Calculate throughput (number of completed processes per unit time)
 function calculateThroughput(schedulingResult) {
     if (schedulingResult.length === 0) return 0;
 
