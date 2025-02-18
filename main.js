@@ -42,7 +42,7 @@ function calculateTurnaroundTime(schedulingResult, processes) {
     let turnaroundTimes = {};
 
     for (const process of processes) {
-        let completionTime = schedulingResult.find(p => p.process_name === process.process_name).end;
+        let completionTime = schedulingResult.findLast(p => p.process_name === process.process_name).end;
         turnaroundTimes[process.process_name] = completionTime - process.arrival_time;
     }
 
